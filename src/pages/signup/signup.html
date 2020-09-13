@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: rgb(89, 233, 209) !important;" padding>
+
+  <form [formGroup]="authForm">
+    <ion-item [ngClass]="{'error-border':!authForm.controls.username.valid && authForm.controls.username.touched}">
+        <ion-label floating>Username</ion-label>
+        <ion-input [(ngModel)]="in1" formControlName="username" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="authForm.controls.username.hasError('required') && authForm.controls.username.touched">
+        <p style="color: red">Field username is required!</p>
+    </ion-item>
+    <ion-item *ngIf="authForm.controls.username.hasError('pattern') && authForm.controls.username.touched">
+        <p style="color: red">Only small and capital letters are allowed!</p>
+    </ion-item>        
+    <ion-item *ngIf="authForm.controls.username.hasError('minlength') && authForm.controls.username.touched">
+        <p style="color: red">Minimum username length is 5!</p>
+    </ion-item>
+  
+    
+
+    <ion-item [ngClass]="{'error-border':!authForm.controls.password.valid && authForm.controls.password.touched}">
+        <ion-label floating>Password</ion-label>
+        <ion-input [(ngModel)]="in2" formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="authForm.controls.password.hasError('required') && authForm.controls.password.touched">
+        <p style="color: red">Field password is required!</p>
+    </ion-item>
+    <ion-item *ngIf="authForm.controls.password.hasError('minlength') && authForm.controls.password.touched">
+        <p style="color: red">Minimum password length is 6!</p>
+    </ion-item> 
+    <!-- <ion-item *ngIf="authForm.controls.password.hasError('pattern') && authForm.controls.password.touched">
+      <p style="color: red">Must contain one special character and one number </p>
+   </ion-item>  -->
+    
+  
+
+  <ion-item [ngClass]="{'error-border':!authForm.controls.age.valid && authForm.controls.age.touched}">
+      <ion-label floating>Age</ion-label>
+      <ion-input [(ngModel)]="in3" formControlName="age" type="numbers"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="authForm.controls.age.hasError('required') && authForm.controls.age.touched">
+      <p style="color: red">Field age is required!</p>
+  </ion-item>
+  <ion-item *ngIf="authForm.controls.age.hasError('pattern') && authForm.controls.age.touched">
+      <p style="color: red">Only numbers  are allowed!</p>
+  </ion-item>
+  <ion-item *ngIf="authForm.controls.age.hasError('age validator') && authForm.controls.age.touched">
+      <p style="color: red">Sorry, only between 10 and 90 !</p>
+  </ion-item>  
+
+
+
+  <ion-item [ngClass]="{'error-border':!authForm.controls.email.valid && authForm.controls.email.touched}">
+      <ion-label floating>Email id</ion-label>
+      <ion-input [(ngModel)]="in4" formControlName="email" type="email"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="authForm.controls.email.hasError('required') && authForm.controls.email.touched">
+      <p style="color: red">Field email is required!</p>            
+  </ion-item>
+  <ion-item *ngIf="authForm.controls.email.hasError('pattern') && authForm.controls.email.touched">
+      <p style="color: red">Email is invalid!</p>
+  </ion-item>
+  
+  
+  <ion-item [ngClass]="{'error-border':!authForm.controls.number.valid && authForm.controls.number.touched}">
+      <ion-label floating>Mobile Number</ion-label>
+      <ion-input [(ngModel)]="in5" formControlName="number" type="numbers"></ion-input>
+  </ion-item>
+  
+  <ion-item *ngIf="authForm.controls.number.hasError('required') && authForm.controls.number.touched">
+      <p style="color: red">Field number is required!</p>            
+  </ion-item>
+  <ion-item *ngIf="authForm.controls.number.hasError('maxlength') && authForm.controls.number.touched">
+      <p style="color: red">Mobile number should have 10 digits!</p>
+  </ion-item>
+  <ion-item *ngIf="authForm.controls.number.hasError('pattern') && authForm.controls.number.touched">
+      <p style="color: red">Mobile number should have numbers only!</p>            
+  </ion-item>
+  <ion-item *ngIf="authForm.controls.number.hasError('minlength') && authForm.controls.number.touched">
+      <p style="color: red">Mobile number should have 10 digits!</p>            
+  </ion-item>
+  <ion-item *ngIf="authForm.controls.number.hasError('min') && authForm.controls.number.touched">
+      <p style="color: red">Mobile number starts wtih 6,7!</p>            
+  </ion-item>
+
+    <button ion-button full color="primary" [disabled]="!authForm.valid" style="margin-top: 20px;" type="button" (click)="saveData()">Register</button>
+  </form>
+</ion-content>

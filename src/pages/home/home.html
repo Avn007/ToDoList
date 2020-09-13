@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Login Page
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: rgb(221, 236, 83) !important;" padding>
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input [(ngModel)]="check1" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input [(ngModel)]="check2" type="password"></ion-input>
+  </ion-item>
+
+  <button ion-button full color="primary" type="button" (click)="confirm()">Login</button>
+  <button ion-button full color="secondary" type="button" (click)="onSignUp()">Sign Up</button>
+</ion-content>

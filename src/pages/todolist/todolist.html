@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>To Do List</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="addToDo()"><ion-icon name="add"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: rgb(243, 197, 111) !important;" padding>
+
+    <ion-list>
+
+        <ion-item-sliding *ngFor="let todo of todos; let i=index">
+              <ion-item color="secondary">
+            {{todo.title}}
+              </ion-item>
+            <ion-item-options>
+                <button  color="danger" ion-button icon-only danger (click)="delete(i)">
+                    <ion-icon name="trash"></ion-icon>
+                </button>
+            </ion-item-options>
+
+        </ion-item-sliding>
+
+    </ion-list>
+
+    <button style="position: fixed; bottom: 20px; right: 20px" ion-button icon-only (click)="logout()"><ion-icon name="power"></ion-icon></button>
+
+</ion-content>
